@@ -1,0 +1,13 @@
+<project name="MyProject" basedir=".">
+
+  <description>Testing Project</description>
+
+
+  <target name="server">
+
+    <echo message="This is going to start a server..."/>
+
+  </target>
+
+
+</project>

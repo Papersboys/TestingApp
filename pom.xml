@@ -14,12 +14,20 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-  </dependencies>
 
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-antrun-plugin</artifactId>
+      <version>1.3</version>
+    </dependency>
+
+
+  </dependencies>
 
   <build>
     <pluginManagement>
       <plugins>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -31,6 +39,30 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <id>ant</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <ant antfile="${basedir}/build.xml">
+                  <target name="server"/>
+                </ant>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
 </project>
